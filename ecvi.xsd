@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.usaha.org/xmlns/ecvi/v0.1.0" version="6.0" xmlns="http://www.usaha.org/xmlns/ecvi/v0.1.0">
+    targetNamespace="http://www.usaha.org/xmlns/ecvi/v0.1.0" version="6.0" xmlns="http://www.usaha.org/xmlns/ecvi/v0.1.0"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.usaha.ecvi" ecore:nsPrefix="ecvi"
+    ecore:documentRoot="EcviRoot">
 
     <xs:annotation>
         <xs:documentation>
@@ -11,10 +13,10 @@
         <xs:documentation>This XML Schema is Copyright © Trace First Limited and is made available under their XML Schema Public License v1. This license is accessible at http://www.statevet.com/xml/public-license-v1.pdf</xs:documentation>
     </xs:annotation>
     <xs:element name="eCVI">
-        <xs:complexType>
+        <xs:complexType ecore:name="Ecvi">
             <xs:sequence maxOccurs="1" minOccurs="1">
-                <xs:element name="Veterinarian">
-                    <xs:complexType>
+                <xs:element name="Veterinarian" >
+                    <xs:complexType ecore:name="Veterinarian">
                         <xs:sequence>
                             <xs:element maxOccurs="1" name="Person" type="PersonType"/>
                             <xs:element name="Address" type="Address" minOccurs="0"/>
@@ -40,7 +42,7 @@
                 </xs:element>
                 <xs:sequence maxOccurs="unbounded" minOccurs="0">
                     <xs:element name="Animal">
-                        <xs:complexType>
+                        <xs:complexType  ecore:name="Animal">
                             <xs:sequence maxOccurs="1" minOccurs="1">
                                 <xs:element name="AnimalTag" maxOccurs="6">
                                     <xs:complexType>
@@ -151,7 +153,7 @@
             </xs:attribute>
         </xs:complexType>
     </xs:element>
-    <xs:simpleType name="SpeciesCodeType">
+    <xs:simpleType name="SpeciesCodeType" ecore:name="SpeciesCode">
         <xs:annotation>
             <xs:documentation>This enforces the list of allowed species codes that are supported.</xs:documentation>
         </xs:annotation>
@@ -165,7 +167,7 @@
             <xs:enumeration value="POR"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="AgeType">
+    <xs:simpleType name="AgeType" ecore:name="Age">
         <xs:annotation>
             <xs:documentation>This can be an age specified as a number of days, weeks, months or years (suffixed with D, W, M or Y to designate which) or a date of birth specified as "YYYY-MM-DD"</xs:documentation>
         </xs:annotation>
@@ -198,7 +200,7 @@
             <xs:enumeration value="TAT"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="BreedType">
+    <xs:simpleType name="BreedType" ecore:name="Breed">
         <xs:annotation>
             <xs:documentation>The breed code must be 2 or 3 uppercase characters</xs:documentation>
         </xs:annotation>
@@ -208,7 +210,7 @@
             <xs:pattern value="[A-Z]{2,3}"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="SexType">
+    <xs:simpleType name="SexType" ecore:name="Sex">
         <xs:annotation>
             <xs:documentation>This enforces the list of allowed codes for animal sex types that are supported.</xs:documentation>
         </xs:annotation>
@@ -281,7 +283,7 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="PremType">
+    <xs:complexType name="PremType" ecore:name="Premises">
         <xs:sequence>
             <xs:element name="PremId" type="PremIdType" minOccurs="0"/>
             <xs:element name="PremName" type="xs:string" minOccurs="0"/>
@@ -289,7 +291,7 @@
             <xs:element maxOccurs="unbounded" name="Person" type="PersonType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="ContactType">
+    <xs:complexType name="ContactType" ecore:name="Contact">
         <xs:sequence>
             <xs:element name="PremId" type="PremIdType" minOccurs="0"/>
             <xs:element name="PremName" type="xs:string" minOccurs="0"/>
@@ -297,7 +299,7 @@
             <xs:element maxOccurs="unbounded" name="Person" type="PersonType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:simpleType name="PremIdType">
+    <xs:simpleType name="PremIdType" ecore:name="PremId">
         <xs:annotation>
             <xs:documentation>NAIS Premises ID or State LID (4-10 uppercase letters and digits)</xs:documentation>
         </xs:annotation>
@@ -305,7 +307,7 @@
             <xs:pattern value="[A-Z0-9]{4,10}"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="CountyType">
+    <xs:simpleType name="CountyType" ecore:name="County">
         <xs:annotation>
             <xs:documentation>From "Lee" to "Aleutians West Census Area" and beyond!</xs:documentation>
         </xs:annotation>
@@ -314,7 +316,7 @@
             <xs:maxLength value="40"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="UsState">
+    <xs:simpleType name="UsState" ecore:name="UsState">
         <xs:annotation>
             <xs:documentation>2-character abbreviation for a state as per USPS National ZIP Code Directory</xs:documentation>
         </xs:annotation>
@@ -384,7 +386,7 @@
             <xs:enumeration value="WY"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="ISO3166CountryType">
+    <xs:simpleType name="ISO3166CountryType" ecore:name="ISO3166Country">
         <xs:annotation>
             <xs:documentation>ISO3166 Alpha-3 codes</xs:documentation>
         </xs:annotation>
@@ -392,7 +394,7 @@
             <xs:enumeration value="USA"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="ZipCode">
+    <xs:simpleType name="ZipCode" ecore:name="ZipCode">
         <xs:annotation>
             <xs:documentation>Must be ZIP or ZIP+4 format</xs:documentation>
         </xs:annotation>
@@ -401,7 +403,7 @@
             <xs:pattern value="[0-9]{5}-[0-9]{4}"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="LatitudeType">
+    <xs:simpleType name="LatitudeType" ecore:name="Latitude">
         <xs:annotation>
             <xs:documentation>A positive number indicates North; negative indicates South</xs:documentation>
         </xs:annotation>
@@ -410,7 +412,7 @@
             <xs:maxInclusive value="90.0"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="LongitudeType">
+    <xs:simpleType name="LongitudeType" ecore:name="Longitude">
         <xs:annotation>
             <xs:documentation>A negative number indicates West; a positive number indicates East</xs:documentation>
         </xs:annotation>
@@ -419,17 +421,17 @@
             <xs:maxInclusive value="180.0"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="GeoPointType">
+    <xs:complexType name="GeoPointType" ecore:name="GeoPoint">
         <xs:attribute name="lat" type="LatitudeType" use="required"/>
         <xs:attribute name="lng" type="LongitudeType" use="required"/>
     </xs:complexType>
-    <xs:complexType name="PersonType">
+    <xs:complexType name="PersonType" ecore:name="Person">
         <xs:sequence>
             <xs:element name="Name" type="xs:string"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" name="Phone" type="PhoneNumType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="PhoneNumType">
+    <xs:complexType name="PhoneNumType" ecore:name="PhoneNum">
         <xs:attribute name="Type" type="PhoneDeviceType" use="required"/>
         <xs:attribute name="Number" use="required">
             <xs:simpleType>
@@ -449,7 +451,7 @@
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
-    <xs:simpleType name="PhoneDeviceType">
+    <xs:simpleType name="PhoneDeviceType" ecore:name="P">
         <xs:annotation>
             <xs:documentation>What type of device is this phone number for?</xs:documentation>
         </xs:annotation>
@@ -469,7 +471,7 @@
             <xs:pattern value="[0-9]{10}"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="AttachmentType">
+    <xs:complexType name="AttachmentType" ecore:name="Attachement">
         <xs:sequence>
             <xs:element name="Payload" type="xs:base64Binary"/>
         </xs:sequence>
@@ -511,7 +513,7 @@
             <xs:pattern value="^.{1,127}/.{1,127}$"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="AccessionType">
+    <xs:complexType name="AccessionType" ecore:name="Accession">
         <xs:sequence>
             <xs:element name="Laboratory">
                 <xs:complexType>
@@ -552,7 +554,7 @@
             </xs:annotation>
         </xs:attribute>
     </xs:complexType>
-    <xs:complexType name="TestType">
+    <xs:complexType name="TestType" ecore:name="Test">
         <xs:sequence>
             <xs:element name="Result" type="ResultValueType" maxOccurs="unbounded"/>
         </xs:sequence>
@@ -563,7 +565,7 @@
         </xs:attribute>
         <xs:attribute name="TestCode" type="xs:string" use="required"/>
     </xs:complexType>
-    <xs:simpleType name="ResultNameType">
+    <xs:simpleType name="ResultNameType" ecore:name="ResultName">
         <xs:annotation>
             <xs:documentation>This is the result type which can either be RESULT or COMMENT</xs:documentation>
         </xs:annotation>
@@ -572,7 +574,7 @@
             <xs:enumeration value="COMMENT"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:complexType name="ResultValueType">
+    <xs:complexType name="ResultValueType" ecore:name="ResultValue">
         <xs:annotation>
             <xs:documentation>You should choose the correct type for the result based on your source data type. We support Integer, Float and String.</xs:documentation>
         </xs:annotation>
@@ -584,13 +586,13 @@
         <xs:attribute name="ResultName" type="ResultNameType" use="required"/>
     </xs:complexType>
 
-    <xs:complexType name="MovementPurposeListType">
+    <xs:complexType name="MovementPurposeListType" ecore:name="MovementPurposes">
         <xs:sequence>
             <xs:element maxOccurs="unbounded" minOccurs="1" name="MovementPurpose"
                 type="MovementPurposeType"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:simpleType name="MovementPurposeType">
+    <xs:simpleType name="MovementPurposeType" ecore:name="MovementPurpose">
         <xs:restriction base="xs:string">
             <xs:enumeration value="show"/>
             <xs:enumeration value="race"/>
