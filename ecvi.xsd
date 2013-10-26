@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.usaha.org/xmlns/ecvi/v0.1.0" version="6.0" xmlns="http://www.usaha.org/xmlns/ecvi/v0.1.0"
+    targetNamespace="http://www.usaha.org/xmlns/ecvi" version="6.0" 
+    xmlns="http://www.usaha.org/xmlns/ecvi"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.usaha.ecvi" ecore:nsPrefix="ecvi"
     ecore:documentRoot="EcviRoot">
 
@@ -68,6 +69,11 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:attribute>
+                            <xs:attribute name="InspectionDate" type="xs:date" use="required">
+                                <xs:annotation>
+                                    <xs:documentation>This is the date on which the animals were inspected by the accrediting veterinarian. If the inspection took place over multiple days, the first day of the inspection should be used.</xs:documentation>
+                                </xs:annotation>
+                            </xs:attribute>
                         </xs:complexType>
                     </xs:element>
                 </xs:sequence>
@@ -124,11 +130,6 @@
                     <xs:documentation>This is the Species for all the animals contained in this CVI.</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="InspectionDate" type="xs:date" use="required">
-                <xs:annotation>
-                    <xs:documentation>This is the date on which the animals were inspected by the accrediting veterinarian. If the inspection took place over multiple days, the first day of the inspection should be used.</xs:documentation>
-                </xs:annotation>
-            </xs:attribute>
             <xs:attribute name="IssueDate" type="xs:date" use="required">
                 <xs:annotation>
                     <xs:documentation>This is the date on which the CVI was issued.</xs:documentation>
@@ -169,10 +170,12 @@
     </xs:simpleType>
     <xs:simpleType name="AgeType" ecore:name="Age">
         <xs:annotation>
-            <xs:documentation>This can be an age specified as a number of days, weeks, months or years (suffixed with D, W, M or Y to designate which) or a date of birth specified as "YYYY-MM-DD"</xs:documentation>
+            <xs:documentation>This can be an age specified as a number of days, weeks, months or years (suffixed with d, wk, mo or a to designate which) or a date of birth specified as "YYYY-MM-DD"
+
+The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]{1,2}[DWMY]"/>
+            <xs:pattern value="[0-9]{1,2}(d|wk|mo|a)"/>
             <xs:pattern value="(19|20)\d\d-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])"/>
         </xs:restriction>
     </xs:simpleType>
@@ -288,6 +291,7 @@
             <xs:element name="PremId" type="PremIdType" minOccurs="0"/>
             <xs:element name="PremName" type="xs:string" minOccurs="0"/>
             <xs:element name="Address" type="Address"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="ProgramStatusType"/>
             <xs:element maxOccurs="unbounded" name="Person" type="PersonType"/>
         </xs:sequence>
     </xs:complexType>
@@ -307,7 +311,42 @@
             <xs:pattern value="[A-Z0-9]{4,10}"/>
         </xs:restriction>
     </xs:simpleType>
+<<<<<<< HEAD
     <xs:simpleType name="CountyType" ecore:name="County">
+=======
+    <xs:element name="ProgramStatusType">
+        <xs:complexType>
+            <xs:attribute name="Name" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Bovine Tuberculosis"/>
+                        <xs:enumeration value="Brucellosis (state)"/>
+                        <xs:enumeration value="Brucellosis (herd)"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="Value" use="required">
+                <xs:annotation>
+                    <xs:documentation>If this is 'Other' you should elaborate using the ValueOther attribute</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Free"/>
+                        <xs:enumeration value="Modified Accredited"/>
+                        <xs:enumeration value="Modified Advanced Accredited"/>
+                        <xs:enumeration value="Other"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="ValueOther" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>You should only provide this attribute if the Value is 'Other'</xs:documentation>
+                </xs:annotation>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="CountyType">
+>>>>>>> refs/remotes/upstream/master
         <xs:annotation>
             <xs:documentation>From "Lee" to "Aleutians West Census Area" and beyond!</xs:documentation>
         </xs:annotation>
