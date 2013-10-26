@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    targetNamespace="http://www.usaha.org/xmlns/ecvi" version="6.0" 
+    targetNamespace="http://www.usaha.org/xmlns/ecvi" version="6.0"
     xmlns="http://www.usaha.org/xmlns/ecvi"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.usaha.ecvi" ecore:nsPrefix="ecvi"
     ecore:documentRoot="EcviRoot">
@@ -16,7 +16,7 @@
     <xs:element name="eCVI">
         <xs:complexType ecore:name="Ecvi">
             <xs:sequence maxOccurs="1" minOccurs="1">
-                <xs:element name="Veterinarian" >
+                <xs:element name="Veterinarian">
                     <xs:complexType ecore:name="Veterinarian">
                         <xs:sequence>
                             <xs:element maxOccurs="1" name="Person" type="PersonType"/>
@@ -311,9 +311,6 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
             <xs:pattern value="[A-Z0-9]{4,10}"/>
         </xs:restriction>
     </xs:simpleType>
-<<<<<<< HEAD
-    <xs:simpleType name="CountyType" ecore:name="County">
-=======
     <xs:element name="ProgramStatusType">
         <xs:complexType>
             <xs:attribute name="Name" use="required">
@@ -346,7 +343,6 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
         </xs:complexType>
     </xs:element>
     <xs:simpleType name="CountyType">
->>>>>>> refs/remotes/upstream/master
         <xs:annotation>
             <xs:documentation>From "Lee" to "Aleutians West Census Area" and beyond!</xs:documentation>
         </xs:annotation>
