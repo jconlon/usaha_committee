@@ -1,15 +1,12 @@
-USAHA sub-committee
+EMF Annotated USAHA ECVI Schema
 ===================
 
-XML schema for electronic CVIs
+This is XML schema for electronic CVIs based on the work done in thee USAHA subcommittee that has been annotated with EMF Ecore annotations 
 
-This repository serves as the collaboration platform for the USAHA subcommittee looking at an XML standard for
-Electronic CVI interchange. If you are a subcommittee member, please send your github username to
-Michael McGrath (mmcgrath@tracefirst.com) who will give you read/write access to the repository.
 
-If you have comments to make on the schema, you should use the 'issues' feature of github.com -- you can access it
+If you have comments to make on the work, you should use the Trac Ticket that is associated with it. -- you can access it
 here:
 
-https://github.com/tracefirst/usaha_committee/issues
+http://tracker-project.verticon.com/verticon_Tracker/ticket/913
 
 Thanks.
