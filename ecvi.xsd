@@ -2,8 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.usaha.org/xmlns/ecvi" version="6.0"
     xmlns="http://www.usaha.org/xmlns/ecvi"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.usaha.ecvi" ecore:nsPrefix="ecvi"
-    ecore:documentRoot="EcviRoot">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:package="org.usaha.ecvi" ecore:nsPrefix="ecvi">
 
     <xs:annotation>
         <xs:documentation>
@@ -34,7 +33,7 @@
                 <xs:element minOccurs="0" name="Consignor" type="ContactType"/>
                 <xs:element minOccurs="0" name="Consignee" type="ContactType"/>
                 <xs:element minOccurs="0" name="Accessions">
-                    <xs:complexType>
+                    <xs:complexType ecore:name="Accessions">
                         <xs:sequence>
                             <xs:element maxOccurs="unbounded" name="Accession" type="AccessionType"
                             />
@@ -46,7 +45,7 @@
                         <xs:complexType  ecore:name="Animal">
                             <xs:sequence maxOccurs="1" minOccurs="1">
                                 <xs:element name="AnimalTag" maxOccurs="6">
-                                    <xs:complexType>
+                                    <xs:complexType ecore:name="AnimalTag">
                                         <xs:attribute name="Type" type="TagType"/>
                                         <xs:attribute name="Number" type="xs:string" use="required"/>
                                         <xs:attribute name="BrandImage" type="xs:base64Binary">
@@ -63,7 +62,7 @@
                             <xs:attribute name="Breed" type="BreedType"/>
                             <xs:attribute name="Sex" type="SexType"/>
                             <xs:attribute name="SexDetail">
-                                <xs:simpleType>
+                                <xs:simpleType ecore:name="AnimalSexDetail">
                                     <xs:restriction base="xs:string">
                                         <xs:maxLength value="100"/>
                                     </xs:restriction>
@@ -78,8 +77,8 @@
                     </xs:element>
                 </xs:sequence>
                 <xs:sequence maxOccurs="unbounded" minOccurs="0">
-                    <xs:element name="GroupLot">
-                        <xs:complexType>
+                    <xs:element name="GroupLot" >
+                        <xs:complexType ecore:name="GroupLot">
                             <xs:attribute name="Quantity" type="xs:float" use="required">
                                 <xs:annotation>
                                     <xs:documentation>This is the quantity of animals or other commodity included in this GroupLot element.</xs:documentation>
@@ -96,14 +95,14 @@
                             <xs:attribute name="Breed" type="BreedType"/>
                             <xs:attribute name="Sex" type="SexType"/>
                             <xs:attribute name="SexDetail">
-                                <xs:simpleType>
+                                <xs:simpleType ecore:name="GroupLotSexDetail">
                                     <xs:restriction base="xs:string">
                                         <xs:maxLength value="100"/>
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:attribute>
                             <xs:attribute name="Description" use="required">
-                                <xs:simpleType>
+                                <xs:simpleType ecore:name="GroupLotDescription">
                                     <xs:restriction base="xs:string">
                                         <xs:maxLength value="200"/>
                                     </xs:restriction>
@@ -119,7 +118,7 @@
                 <xs:annotation>
                     <xs:documentation>This is the CVI number for this CVI</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
+                <xs:simpleType ecore:name="CviNumber">
                     <xs:restriction base="xs:string">
                         <xs:maxLength value="100"/>
                     </xs:restriction>
@@ -146,7 +145,7 @@
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="EntryPermitNumber">
-                <xs:simpleType>
+                <xs:simpleType ecore:name="EntryPermitNumber">
                     <xs:restriction base="xs:string">
                         <xs:maxLength value="100"/>
                     </xs:restriction>
@@ -233,7 +232,7 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
                 <xs:annotation>
                     <xs:documentation>First line of the premises address</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
+                <xs:simpleType ecore:name="AddressLine1">
                     <xs:restriction base="xs:string">
                         <xs:maxLength value="200"/>
                     </xs:restriction>
@@ -243,7 +242,7 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
                 <xs:annotation>
                     <xs:documentation>Second line of the premises address</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
+                <xs:simpleType ecore:name="AddressLine2">
                     <xs:restriction base="xs:string">
                         <xs:maxLength value="200"/>
                     </xs:restriction>
@@ -253,7 +252,7 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
                 <xs:annotation>
                     <xs:documentation>Town/City of the premises address</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
+                <xs:simpleType ecore:name="Town">
                     <xs:restriction base="xs:string">
                         <xs:maxLength value="200"/>
                     </xs:restriction>
@@ -311,10 +310,10 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
             <xs:pattern value="[A-Z0-9]{4,10}"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:element name="ProgramStatusType">
-        <xs:complexType>
-            <xs:attribute name="Name" use="required">
-                <xs:simpleType>
+    <xs:element name="ProgramStatusType" >
+        <xs:complexType ecore:name="ProgramStatus">
+            <xs:attribute name="Name" use="required" ecore:name="Name">
+                <xs:simpleType ecore:name="ProgramStatusName">
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="Bovine Tuberculosis"/>
                         <xs:enumeration value="Brucellosis (state)"/>
@@ -322,11 +321,11 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
                     </xs:restriction>
                 </xs:simpleType>
             </xs:attribute>
-            <xs:attribute name="Value" use="required">
+            <xs:attribute name="Value" use="required" ecore:name="Value">
                 <xs:annotation>
                     <xs:documentation>If this is 'Other' you should elaborate using the ValueOther attribute</xs:documentation>
                 </xs:annotation>
-                <xs:simpleType>
+                <xs:simpleType ecore:name="ProgramStatusValue">
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="Free"/>
                         <xs:enumeration value="Modified Accredited"/>
@@ -335,14 +334,14 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
                     </xs:restriction>
                 </xs:simpleType>
             </xs:attribute>
-            <xs:attribute name="ValueOther" type="xs:string">
+            <xs:attribute name="ValueOther" type="xs:string" ecore:name="ValueOther">
                 <xs:annotation>
                     <xs:documentation>You should only provide this attribute if the Value is 'Other'</xs:documentation>
                 </xs:annotation>
             </xs:attribute>
         </xs:complexType>
     </xs:element>
-    <xs:simpleType name="CountyType">
+    <xs:simpleType name="CountyType" ecore:name="County">
         <xs:annotation>
             <xs:documentation>From "Lee" to "Aleutians West Census Area" and beyond!</xs:documentation>
         </xs:annotation>
@@ -469,7 +468,7 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
     <xs:complexType name="PhoneNumType" ecore:name="PhoneNum">
         <xs:attribute name="Type" type="PhoneDeviceType" use="required"/>
         <xs:attribute name="Number" use="required">
-            <xs:simpleType>
+            <xs:simpleType ecore:name="PhoneNumNumber">
                 <xs:restriction base="PhoneNumber">
                     <xs:pattern value="[0-9]{10}"/>
                 </xs:restriction>
@@ -479,14 +478,14 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
             <xs:annotation>
                 <xs:documentation>This is meant for comments about this phone number. Examples might be an extension number or a comment such as "daytime only."</xs:documentation>
             </xs:annotation>
-            <xs:simpleType>
+            <xs:simpleType ecore:name="PhoneNumComment">
                 <xs:restriction base="xs:string">
                     <xs:maxLength value="100"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
-    <xs:simpleType name="PhoneDeviceType" ecore:name="P">
+    <xs:simpleType name="PhoneDeviceType" ecore:name="PhoneDevice">
         <xs:annotation>
             <xs:documentation>What type of device is this phone number for?</xs:documentation>
         </xs:annotation>
@@ -497,7 +496,7 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
             <xs:enumeration value="Fax"/>
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="PhoneNumber">
+    <xs:simpleType name="PhoneNumber" ecore:name="PhoneNumber">
         <xs:annotation>
             <xs:documentation>Must be a 10-digit number without spaces, dashes etc.</xs:documentation>
         </xs:annotation>
@@ -510,11 +509,11 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
         <xs:sequence>
             <xs:element name="Payload" type="xs:base64Binary"/>
         </xs:sequence>
-        <xs:attribute name="DocType" use="required">
+        <xs:attribute name="DocType" use="required" >
             <xs:annotation>
                 <xs:documentation>This specifies what type of document this attachment is</xs:documentation>
             </xs:annotation>
-            <xs:simpleType>
+            <xs:simpleType ecore:name="DocType">
                 <xs:restriction base="xs:string">
                     <xs:enumeration value="Scanned Paper CVI"/>
                     <xs:enumeration value="Scanned Test Chart"/>
@@ -526,21 +525,21 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
         </xs:attribute>
         <xs:attribute name="MimeType" type="MimeTypeType"/>
         <xs:attribute name="Filename" use="required">
-            <xs:simpleType>
+            <xs:simpleType ecore:name="FileName">
                 <xs:restriction base="xs:string">
                     <xs:maxLength value="250"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="Comment">
-            <xs:simpleType>
+        <xs:attribute name="Comment" >
+            <xs:simpleType ecore:name="AttachementComment">
                 <xs:restriction base="xs:string">
                     <xs:maxLength value="250"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
     </xs:complexType>
-    <xs:simpleType name="MimeTypeType">
+    <xs:simpleType name="MimeTypeType" ecore:name="MimeType">
         <xs:annotation>
             <xs:documentation>See http://tools.ietf.org/html/rfc4288#section-4.2</xs:documentation>
         </xs:annotation>
@@ -551,7 +550,7 @@ The age definitions adhere to UCUM - http://unitsofmeasure.org/ucum.html</xs:doc
     <xs:complexType name="AccessionType" ecore:name="Accession">
         <xs:sequence>
             <xs:element name="Laboratory">
-                <xs:complexType>
+                <xs:complexType ecore:name="Laboratory">
                     <xs:sequence>
                         <xs:element name="LabName" type="xs:string" minOccurs="0"/>
                         <xs:element name="PremId" type="PremIdType" minOccurs="0">
