@@ -33,12 +33,10 @@ the [USAHA Ecvi subcommittee](https://github.com/tracefirst/usaha_committee) use
 Verticon Integration
 --------------------
 If you would like to skip the process of generation and just try out the generated components in an Eclipse workspace 
-see the Verticon specific project details and installation instructions 
-[desktop.ecvi.beta.0.1 Milestone](http://tracker-project.verticon.com/verticon_Tracker/milestone/desktop.ecvi.beta.0.1)
+see the Verticon specific project details and installation instructions at the 
+[desktop.ecvi.beta.0.1 Milestone](http://tracker-project.verticon.com/verticon_Tracker/milestone/desktop.ecvi.beta.0.1).
 
-If you have comments to make on this annotation work, you should use the Trac Ticket that is associated with it. -- you can access it
-here: [Ticket:913](http://tracker-project.verticon.com/verticon_Tracker/ticket/913)of generated components see the 
-
-
+If you have comments to make on this annotation work, you should use the Trac
+[Ticket:913](http://tracker-project.verticon.com/verticon_Tracker/ticket/913). 
 
 Thanks.
