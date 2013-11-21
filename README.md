@@ -26,7 +26,7 @@ for adding higher level eCVI business rules and validation services.
 Generating Code from the XML Schema Meta-Model
 -----------------------------------------
 
-EMF provides a simple dialog driven process for generating the above mentioned components and runtime utilities from an XML Schema.  
+EMF provides a simple dialog driven process for generating the above mentioned components and runtime utilities from an XML Schema.
 [This Article](http://techblog.goelite.org/generating-an-xml-editor-based-on-xsd-using-emf/) documents the process.
 
 To specify to the code generators more conventional class names for the generated components this project provides a XML Schema that 
