@@ -43,7 +43,9 @@ see the Verticon specific project details and installation instructions at the
 See also the [desktop.ecvi.beta.0.2 Milestone](http://tracker-project.verticon.com/verticon_Tracker/milestone/desktop.ecvi.beta.0.2) for
 follow on work.
 
-If you have comments to make on this annotation work, you should use the Trac
+If you have technical comments to make on this annotation work, you should use the Trac
 [Ticket:913](http://tracker-project.verticon.com/verticon_Tracker/ticket/913). 
+
+For questions contact John Conlon (jconlon@verticon.com)
 
 Thanks.
