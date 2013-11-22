@@ -29,18 +29,19 @@ Generating Code from the XML Schema Meta-Model
 EMF provides a simple dialog driven process for generating the above mentioned components and runtime utilities from an XML Schema.
 [This Article](http://techblog.goelite.org/generating-an-xml-editor-based-on-xsd-using-emf/) documents the process.
 
-To specify to the code generators more conventional class names for the generated components this project provides a XML Schema that 
+In order to create more conventional and user/developer friendly class names for the generated components this project provides a XML Schema that 
 adds Eclipse Model Framework [EMF](http://www.eclipse.org/modeling/emf/) annotations to the XML schema created by 
-the [USAHA Ecvi subcommittee](https://github.com/tracefirst/usaha_committee) use it in the generation process.
+the [USAHA Ecvi subcommittee](https://github.com/tracefirst/usaha_committee).  Use this annotated schema if you wish follow the steps
+outlined above to generate EMF models and components.
 
 Verticon Integration
 --------------------
 
-If you would like to skip the process of generation and just try out the generated components in an Eclipse workspace 
+If you would like to skip the process of generation and just try out the generated components in an existing Eclipse workspace 
 see the Verticon specific project details and installation instructions at the 
 [desktop.ecvi.beta.0.1 Milestone](http://tracker-project.verticon.com/verticon_Tracker/milestone/desktop.ecvi.beta.0.1).
 
-See also the [desktop.ecvi.beta.0.2 Milestone](http://tracker-project.verticon.com/verticon_Tracker/milestone/desktop.ecvi.beta.0.2) for
+Also see the [desktop.ecvi.beta.0.2 Milestone](http://tracker-project.verticon.com/verticon_Tracker/milestone/desktop.ecvi.beta.0.2) for
 follow on work.
 
 If you have technical comments to make on this annotation work, you should use the Trac
