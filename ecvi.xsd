@@ -40,7 +40,7 @@
                 </xs:element>
                 <xs:sequence maxOccurs="unbounded" minOccurs="0">
                     <xs:element name="Animal" minOccurs="1" maxOccurs="1">
-                        <xs:complexType ecore:name="Animal">
+                      <xs:complexType ecore:name="Animal">
                             <xs:sequence minOccurs="1" maxOccurs="1">
                                 <xs:element name="AnimalTag" minOccurs="1" maxOccurs="6">
                                     <xs:complexType ecore:name="AnimalTag">
